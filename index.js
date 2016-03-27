@@ -3,6 +3,7 @@
 // 载入基本模块
 const Weixinbot = require('weixinbot');
 const qrcode = require('qrcode-terminal');
+const tuling = require('./tuling');
 
 // 创建winxinbot实例
 const bot = new Weixinbot();
@@ -15,14 +16,30 @@ bot.on('qrcode', (qrcodeUrl) => {
 
 bot.on('friend',(msg) => {
 	console.log(msg.Member.NickName + ': ' + msg.Content)
-  bot.sendText(msg.FromUserName, '睡觉中，请稍等...');
+	console.log('id: ', msg.Member._id);
+	// console.log('type: ', msg.MsgType);
+	// console.log(msg);
+
+	// if (msg.Member._id !== 'BGfytA8vpyrh8jsS') {
+	// 	return;
+	// }
+
+	if (msg.MsgType == '34') {
+		return bot.sendText(msg.FromUserName, '机器人听不懂语音哦...');
+	}
+
+	if (msg.MsgType == '1') {
+		tuling.ask(msg.Content).then((result) => {
+			if (result && result.code == '100000') {
+				bot.sendText(msg.FromUserName, result.text);
+			}
+		});
+	}
+
 });
 
 bot.on('group', (msg) => {
-	const member = msg.GroupMember;
-	const group = msg.Group;
-	console.log('group: ', group.NickName, group._id);
-	console.log('member: ',member.NickName, member.DisplayName, member._id);
+	
 });
 
 

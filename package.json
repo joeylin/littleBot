@@ -1,0 +1,18 @@
+{
+  "name": "webchat",
+  "version": "0.6.0",
+  "description": "waiting",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "joeylin",
+  "license": "GPL",
+  "dependencies": {
+    "mysql": "^2.10.2",
+    "q": "^1.4.1",
+    "qrcode-terminal": "^0.10.0",
+    "unirest": "^0.4.2",
+    "weixinbot": "^0.4.8"
+  },
+  "devDependencies": {}
+}
