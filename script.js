@@ -1,4 +1,5 @@
 // 初始化数据库
+var mysql = require('mysql');
 var config = require('./config');
 var dbConfig = config.db;
 var connection = mysql.createConnection(dbConfig);
