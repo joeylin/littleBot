@@ -13,14 +13,16 @@ bot.on('qrcode', (qrcodeUrl) => {
   qrcode.generate(qrcodeUrl.replace('/qrcode/', '/l/'), console.log);
 });
 
-// bot.on('friend',(msg) => {
-// 	console.log('friend...')
-// 	console.log(msg);
-// });
+bot.on('friend',(msg) => {
+	console.log(msg.Member.NickName + ': ' + msg.Content)
+  bot.sendText(msg.FromUserName, '睡觉中，请稍等...');
+});
 
 bot.on('group', (msg) => {
-	console.log('group ....')
-	console.log(msg);
+	const member = msg.GroupMember;
+	const group = msg.Group;
+	console.log('group: ', group.NickName, group._id);
+	console.log('member: ',member.NickName, member.DisplayName, member._id);
 });
 
 
