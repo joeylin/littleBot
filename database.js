@@ -4,7 +4,13 @@ var connection = mysql.createConnection(config.db);
 connection.connect();
 
 exports = {
-	add: () => {
+	addFriend: () => {
 
+	},
+	addGroup: () => {
+
+	},
+	checkWatchList: (id) => {
+		return true;
 	}
 }

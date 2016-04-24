@@ -17,12 +17,17 @@ bot.on('qrcode', (qrcodeUrl) => {
 bot.on('friend',(msg) => {
 	console.log(msg.Member.NickName + ': ' + msg.Content)
 	console.log('id: ', msg.Member._id);
+
+	const friend = {
+		id: msg.Member._id,
+		name: msg.Member.NickName
+	};
 	// console.log('type: ', msg.MsgType);
 	// console.log(msg);
 
-	// if (msg.Member._id !== 'BGfytA8vpyrh8jsS') {
-	// 	return;
-	// }
+	if (msg.Member._id !== 'fNgXYMothfPQwUFu') {
+		return;
+	}
 
 	if (msg.MsgType == '34') {
 		return bot.sendText(msg.FromUserName, '机器人听不懂语音哦...');
@@ -35,13 +40,11 @@ bot.on('friend',(msg) => {
 			}
 		});
 	}
-
 });
 
 bot.on('group', (msg) => {
-	
+	// console.log(msg.Group._id);
 });
-
 
 
 // 初始化weixinbot
