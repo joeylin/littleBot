@@ -24,7 +24,7 @@ bot.on('friend',(msg) => {
 	};
 	// console.log('type: ', msg.MsgType);
 	// console.log(msg);
-
+	// 仅给清峦测试
 	if (msg.Member._id !== 'fNgXYMothfPQwUFu') {
 		return;
 	}
